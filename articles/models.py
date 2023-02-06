@@ -6,7 +6,7 @@ from django.urls import reverse
 
 
 
-class Post(models.Model):
+class Article(models.Model):
     title = models.CharField(max_length=150)
     summary = models.CharField(max_length=200, blank=True)
     body = models.TextField()
