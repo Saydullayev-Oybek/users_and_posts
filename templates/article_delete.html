@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container container1">
+            <form method="post">{% csrf_token %}
+                {{ form|crispy }}
+                <h2>{{ article.title }} nomli maqolani o'chirishni xohlaysizmi</h2>
+                <button class="btn btn-success" type="submit">o'chirish</button>
+            </form>
+    </div>
+{% endblock content %}

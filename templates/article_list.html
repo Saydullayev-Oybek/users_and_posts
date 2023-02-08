@@ -3,11 +3,11 @@
 {% block content %}
     <div class="container container1">
         {% for article in object_list %}
-            <h2>title: {{ article.title }}</h2>
+            <h2><a href="{% url 'article_detail' article.pk %}">title: {{ article.title }}</a></h2>
             {% if article.photo %}
                 <img src="{{ article.photo.url }}" alt="{{ article.title }}">
             {% endif %}
-            <p>{{ article.body }}</p>
+            <p>{{ article.body|slice:':60' }}</p>
             <span>muallif: {{ article.author }} | {{ article.date }}</span> <hr><br><br>
         {% endfor %}
     </div>

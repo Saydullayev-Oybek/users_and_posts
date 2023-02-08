@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container container1">
+            <h2><a href="{% url 'article_detail' article.pk %}">title: {{ article.title }}</a></h2>
+            {% if article.photo %}
+                <img src="{{ article.photo.url }}" alt="{{ article.title }}">
+            {% endif %}
+            <p>{{ article.body | safe}}</p>
+            <span>muallif: {{ article.author }} | {{ article.date }}</span>
+            <a href="{% url 'article_update' article.pk %}">| o'zgartirish</a>
+            <a href="{% url 'article_delete' article.pk %}">| o'chirish</a>
+            {% for comment in article.comments.all %}<hr>
+                <p>comment: {{ comment }}</p>
+                <footert class="blockquote-footer">{{ comment.author }}</footert>
+            {% endfor %}
+            <hr><br><br>
+    </div>
+
+{% endblock content %}
